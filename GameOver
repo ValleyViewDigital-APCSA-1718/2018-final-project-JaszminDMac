@@ -1,0 +1,31 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Class for GameOver that signifies the end of the game
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public class GameOver extends World 
+{
+
+    /**
+     * Constructor for objects of class GameOver.
+     * 
+     */
+    public GameOver()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        GreenfootImage end = new GreenfootImage(getWidth(), getHeight());
+        end.setColor(Color.BLACK);
+        end.fillRect(0, 0, getWidth(), getHeight());
+        setBackground(end);
+        Font font = new Font("SansSerif", 60);
+        end.setFont(font);
+        end.setColor(Color.RED);
+        String message = "GAME OVER";
+        end.drawString(message, getWidth()/2 - message.length()*20, getHeight()/2);
+        
+    }// creates game over in middle of screen
+}// end class GameOver
