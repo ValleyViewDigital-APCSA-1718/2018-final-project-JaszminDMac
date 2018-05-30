@@ -1,0 +1,42 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Child class Apple - what must be caught
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public class Apple extends Fruit implements CleanUp
+{
+
+    /**
+     * Act - do whatever the Apple wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        // Add your action code here.
+        setLocation(getX(), getY()+ 2);
+        tracker++;
+        
+        if( tracker % 100 == 0)
+        {
+            setLocation(getX(), getY() + 5);
+        }// increases speed over time
+
+        ifAtWorldEdge();
+
+
+    } 
+    
+    public void ifAtWorldEdge()
+    {
+        if (isAtEdge() == true)
+        {
+             getWorld().removeObject(this);
+        }// end if
+    }// removes apples as they hit the ground
+    
+
+    
+}// end child class apple
