@@ -1,0 +1,11 @@
+/**
+ * Write a description of class CleanUp here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public interface CleanUp  
+{   
+    public void ifAtWorldEdge(); // removes uncaught objects
+
+}// end class CleanUp
