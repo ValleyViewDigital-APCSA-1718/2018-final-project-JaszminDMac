@@ -1,0 +1,32 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Class for Counter that keeps score
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public class Counter extends Actor
+{
+    public static int score = 0; // made static so it can be accessed appropiately
+    
+    /**
+     * Act - do whatever the Text wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        setImage(new GreenfootImage("Score: " + score, 24, Color.BLACK, Color.YELLOW));
+    } 
+    
+
+    
+    public void addScore()
+    {
+        score = Player.list.size(); 
+    }// score is based on how many apples are in the list 
+    
+
+        
+    
+}// end class Counter
