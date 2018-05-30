@@ -1,0 +1,12 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Abstrat parent class Fruit w/ children Apple, Bananas, and Cherries
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public abstract class Fruit extends Actor
+{
+    public int tracker; // accessed by children apple, banana, and cherries
+}// end parent class Fruit
