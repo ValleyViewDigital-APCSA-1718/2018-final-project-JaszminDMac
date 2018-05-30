@@ -1,0 +1,65 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * Class for Player avatar
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public class Player extends Actor
+{
+    public static List<Object> list = new ArrayList<Object>();
+    /**
+     * Act - do whatever the Player wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        
+        if (Greenfoot.isKeyDown("left"))
+        {
+            move(-8);
+        }
+        
+        if (Greenfoot.isKeyDown("right"))
+        {
+            move(8);
+        }
+        
+        Actor apple = getOneIntersectingObject(Apple.class);
+        if (apple != null)
+        {
+            World myWorld = getWorld();
+            list.add(apple);
+            myWorld.removeObject(apple);
+            MyWorld mine = (MyWorld)myWorld;
+            Counter counter = mine.getCounter();
+            for (int i = 0; i < list.size(); i++)
+            {
+                counter.addScore();
+            }// score adds for every apple caught and placed in the list
+        }//removes and adds apple to score when caught
+        
+      Actor banana = getOneIntersectingObject(Bananas.class);
+      Actor cherry = getOneIntersectingObject(Cherries.class);
+       if ( banana != null || cherry != null)
+       {
+           Greenfoot.stop();
+           GameOver gameover = new GameOver();
+           Greenfoot.setWorld(new GameOver());
+       }// ends the game if the player catches a cherry or banana
+    }    
+    
+    public Player()
+    {
+        GreenfootImage image1 = getImage();
+        image1.scale(100, 100);
+        setImage(image1);
+        
+
+    }// enlarges player
+    
+
+}// end class Player
