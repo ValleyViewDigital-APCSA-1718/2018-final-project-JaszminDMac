@@ -1,0 +1,86 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Class MyWorld where all the action happens
+ * 
+ * Jaszmin Delt-Makey
+ * 5-29-18
+ */
+public class MyWorld extends World
+{
+    Counter counter = new Counter();
+    
+    private int counterA = 80;
+    private int counterB = 140;
+    private int counterC = 120;
+    private int tempScore = Counter.score;
+    
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    public MyWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(750, 800, 1); 
+        
+        Player player1 = new Player();
+        addObject(player1, 375, 752);
+        
+        addObject(counter, 100, 100);
+        
+
+        
+        
+    }// creates player and the score counter
+    
+    public Counter getCounter()
+    {
+        return counter;
+    }// gives Counter to whatever actor wants it
+    
+
+    
+    public void act()
+    {
+        for (int i = 0; i <= tempScore; i++)
+        {
+            Fruit apple1 = new Apple();
+        
+            if(counterA == 80)
+            {
+                addObject(apple1, Greenfoot.getRandomNumber(getWidth()), 0); 
+                counterA = 0;
+            }// apple falls, timer resers
+            else
+            {
+                counterA++;
+            }// once timer gets back to 80, another apple falls
+        
+            Fruit banana1 = new Bananas();
+            if (counterB == 140)
+            {
+                addObject(banana1, Greenfoot.getRandomNumber(getWidth()),0);
+                counterB = 0;
+            }// same as previous if 
+            else
+            {
+                counterB++;
+            }// same as previous else
+        
+            Fruit cherry1 = new Cherries();
+            if (counterC == 120)
+            {
+                addObject(cherry1, Greenfoot.getRandomNumber(getWidth()),0);
+                counterC = 0;
+            }// same as previous if
+            else
+            {
+                counterC++;
+            }// same as previous else
+       }// allows fruit to spawn as long as score is 0 or higher
+    }// allows different fruits to fall randomly and at different given intervals of time
+    
+
+    
+}// end class MyWorld
